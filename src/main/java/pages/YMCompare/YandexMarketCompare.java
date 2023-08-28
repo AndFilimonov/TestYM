@@ -26,6 +26,7 @@ public class YandexMarketCompare extends BasePage {
     }
 
     public YandexMarketCompare yandexMarketCompareProducts() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         By button = By.xpath("//a[text()='Сравнить']");
         WebElement buttonEl = driver.findElement(button);
         waitElement(buttonEl).click();
@@ -68,7 +69,7 @@ public class YandexMarketCompare extends BasePage {
 
     public YandexMarketCompare yandexMarketComparePrice() {
         Boolean price = null;
-        if (Price1 + Price2 > 300) {
+        if (Price1 + Price2 <= 300) {
             price = true;
         } else {
             price = false;
