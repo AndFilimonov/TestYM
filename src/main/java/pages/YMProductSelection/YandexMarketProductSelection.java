@@ -14,17 +14,15 @@ public class YandexMarketProductSelection extends BasePage {
     }
 
     public YandexMarketProductSelection yandexMarketProductSelection1 () {
-        /*try {
-            Thread.sleep(5000);
+        try {
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
-        }*/
+        }
         By product = By.xpath("//div[@data-index=0]//div[@class='_2im8- _2S9MU _2jRxX'][1]//a");
         WebElement productEl = driver.findElement(product);
         waitElement(productEl).click();
         return this;
-        /*waitElement(driver.findElement(By.xpath("//div[@data-index=0]//div[@class='_2im8- _2S9MU _2jRxX'][1]//a"))).click();
-        return this;*/
     }
 
     public YandexMarketProductSelection yandexMarketProductSelection2 () {

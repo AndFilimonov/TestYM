@@ -15,9 +15,11 @@ public class YandexMarketCompare extends BasePage {
         super(driver);
     }
 
+
     private By compare = By.xpath("//div[@data-auto='compare-button']");
 
     public YandexMarketCompare yandexMarketCompare() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         WebElement compareEl = driver.findElement(compare);
         waitElement(compareEl).click();
         return this;
@@ -66,7 +68,7 @@ public class YandexMarketCompare extends BasePage {
 
     public YandexMarketCompare yandexMarketComparePrice() {
         Boolean price = null;
-        if (Price1 + Price2 <= 300) {
+        if (Price1 + Price2 > 300) {
             price = true;
         } else {
             price = false;
@@ -78,7 +80,7 @@ public class YandexMarketCompare extends BasePage {
     public YandexMarketCompare yandexMarketCompareDeletProduct() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         By by = By.xpath("//a[contains(text(),'Whiskas')]");
-        Assert.assertTrue(driver.findElements(by).size() == 0);
+        Assert.assertFalse(driver.findElements(by).isEmpty());
         return this;
     }
 
