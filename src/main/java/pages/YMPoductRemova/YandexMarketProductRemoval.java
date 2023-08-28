@@ -16,7 +16,7 @@ public class YandexMarketProductRemoval extends BasePage {
 
     public YandexMarketProductRemoval yandexMarketProductRemoval() {
         JavascriptExecutor js = (JavascriptExecutor) driver;
-        WebElement webEl = driver.findElement(By.className("vn_Oq"));
+        WebElement webEl = driver.findElement(By.xpath("(//div[@class='vn_Oq'])[2]"));
         js.executeScript("arguments[0].setAttribute('style', 'visibility:visible; opacity:1')", webEl);
         WebElement webElement = driver.findElement(By.xpath("//a[contains(text(),'Whiskas')]/..//div/div[@aria-label='Удалить']"));
         waitElement(webElement).click();
